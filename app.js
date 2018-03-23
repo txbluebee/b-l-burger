@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
+require('dotenv').config;
 // view engine setup
 app.use(express.static(path.join(__dirname, 'public')));
 app.engine('ejs', engine);

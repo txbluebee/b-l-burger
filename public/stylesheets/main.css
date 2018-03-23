@@ -5,6 +5,7 @@ brown color: #3D1101
 
 html, body {
   font-family: 'Lato', sans-serif;
+  color: #3D1101;
 }
 
 /* Resue */
@@ -18,6 +19,11 @@ html, body {
   justify-content: center;
   align-items: center;
 }
+
+h2 {
+
+}
+
 
 /* HEADER */
 
@@ -58,4 +64,11 @@ header .caption {
 
 .caption span i{
   font-size: 1rem;
+}
+
+
+/* Footer */
+
+footer {
+  padding: 1.5rem 0;
 }

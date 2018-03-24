@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
+var csrf = require('csurf')
+// setup route middlewares
+var csrfProtection = csrf({ cookie: true })
 var admin = require("firebase-admin");
 var serviceAccount = require("./../my-projects-d97f2-firebase-adminsdk-4ne37-0c4df79890.json");
 //firebase config
@@ -14,11 +17,11 @@ var fireData = admin.database();
 require('dotenv').config()
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index');
+router.get('/', csrfProtection, function (req, res, next) {
+  res.render('index', { csrfToken: req.csrfToken() });
 });
 
-router.post('/sendEmail', (req, res) => {
+router.post('/sendEmail', csrfProtection , (req, res) => {
   const { name, email, phone, guest_number, diet } = req.body;
 
   let transporter = nodemailer.createTransport({

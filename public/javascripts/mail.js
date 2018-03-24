@@ -7,7 +7,8 @@ const guestNumber = document.getElementById('guest_number')
 const dietOption = document.querySelector('input[name="diet"]:checked');
 const send = document.getElementById('send');
 const reserveDone = document.querySelector('.reserve-complete');
-
+const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+console.log(token);
 function clearField(input) {
   input.value = "";
 };
@@ -22,6 +23,7 @@ send.addEventListener('click',(e)=>{
   const reservation = {name, phone, email, guest_number, diet};
   const xhr = new XMLHttpRequest();
   xhr.open('post', '/sendEmail');
+  xhr.setRequestHeader('X-CSRF-Token', token);
   xhr.setRequestHeader('Content-type', 'application/json');
   xhr.send(JSON.stringify(reservation));
   xhr.onload = () =>{

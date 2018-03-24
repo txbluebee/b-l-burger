@@ -1,16 +1,26 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
+var admin = require("firebase-admin");
+var serviceAccount = require("./../my-projects-d97f2-firebase-adminsdk-4ne37-0c4df79890.json");
+//firebase config
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://my-projects-d97f2.firebaseio.com"
+});
+
+var fireData = admin.database();
+
 require('dotenv').config()
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index');
 });
 
-router.post('/sendEmail', (req,res)=>{
+router.post('/sendEmail', (req, res) => {
   const { name, email, phone, guest_number, diet } = req.body;
-  console.log("hello");
+
   let transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
@@ -21,22 +31,35 @@ router.post('/sendEmail', (req,res)=>{
 
   let mailOptions = {
     from: '"B&L Burger"<kuomu.fan@gmail.com>',
-    to: 'kuomu.fan@yahoo.com',
+    to: `kuomu.fan@yahoo.com, ${email}`,
     subject: `Reservation Notice from ${email}`,
     text: `${name} is a ${diet} and he/she would like to reserve a take for ${guest_number} people`
   }
 
-  transporter.sendMail(mailOptions, (error,info)=>{
-    if (error){
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
       return console.log(error);
     }
     res.send('on no');
   })
-  res.send({
-    "success": true,
-    "data": req.body, 
-    "messages": "you dilivered the mail",
+  // add reservation data to firebase
+  const reserveRef = fireData.ref('reservations').push();
+  reserveRef.set({ name, email, phone, guest_number, diet }).then(()=>{
+    fireData.ref('reservations').once('value', (snapshot)=>{
+      res.send({
+        "success": true,
+        "firebase-data": snapshot.val(), 
+        "data": req.body,
+        "messages": "you dilivered the mail and saved data to firebase",
+      })
+    })
   })
+
+
+
+
+
+
 })
 
 module.exports = router;

@@ -155,6 +155,30 @@ header .caption {
   margin-bottom: 0;
 }
 
+/* Testimonial */
+
+.section-testimonial {
+  background-color: #eee8e6c9;
+}
+
+.media img {
+  border-radius: 50%;
+}
+
+.media-body h5 {
+  text-transform: capitalize;
+}
+
+.media-body {
+  line-height: 145%;
+}
+
+.media-body span {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
 
 /* Reservation */
 

@@ -1,19 +1,19 @@
-.section-register {
+.section-form {
   background-color: #eee8e6c9;
 }
 
-.section-register .title {
+.section-form .title {
   text-align: center;
   margin-bottom: 2rem;
 }
-.section-register .title .h2 {
+.section-form .title .h2 {
   font-size: 2rem;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 2px;
 }
 
-.section-register .title span {
+.section-form .title span {
   display: block;
   font-weight: 300;
   font-size: 1rem;
@@ -46,8 +46,48 @@
 }
 
 
-.btn-orange {
+
+.btn-orange{
   background-color: #F56C23;
   color: #fff;
-  
+  transition: background-color 0.2s;
+}
+
+.btn-orange:hover,
+.btn-orange:active {
+  background-color: #cb4d09;
+  color: #fff;
+}
+
+/* login */
+
+.login-block {
+  background-color: #eee8e6c9;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-top: 4px solid #F56C23;
+  box-shadow: 2px 2px 5px rgb(90, 86, 86);
+}
+
+.login-block .h5 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.login-block form {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.login-block label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-form .btn {
+  text-transform: uppercase;
+  width: 45%;
 }

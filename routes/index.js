@@ -22,11 +22,15 @@ router.get('/', csrfProtection, function (req, res, next) {
 });
 
 // GET register page
-
 router.get('/register', (req,res)=>{
   res.render('register');
 })
 
+
+// GET login page
+router.get('/login', (req,res)=>{
+  res.render('login');
+})
 
 // send mail when submit reservation form 
 router.post('/sendEmail', csrfProtection , (req, res) => {

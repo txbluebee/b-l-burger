@@ -1,92 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="csrf-token" content="<%= csrfToken %>">
-  <title>Document</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="./stylesheets/ionicons.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./stylesheets/main.css">
-</head>
-
+  <% include templates/head.ejs %>
 <body>
-  <header class="bg-cover">
-    <nav class="navbar navbar-expand-lg justify-content-end navbar-dark sticky-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">bl-burger</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Goal</a>
-            <a class="nav-item nav-link" href="#">Chef</a>
-            <a class="nav-item nav-link" href="#">Reserve</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <div class="caption text-white text-center">
-      <h1>Brian &amp; Lily's Burger</h1>
-      <div class="mt-3 d-flex flex-column">
-        <span>your best neighborhood restaurant</span>
-        <span>
-          <i class="ion-beer"></i>
-          tasty burger
-          <i class="ion-beer"></i>
-        </span>
-      </div>
-    </div>
-  </header>
+  <% include templates/header.ejs %>
+
   <%- body %>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <h5>About B &amp; L Burger</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore debitis nam aspernatur excepturi blanditiis
-              dolorum ullam tuuptatem. incidunt!</p>
-          </div>
-          <div class="col-md-4">
-            <h5>Contact</h5>
-            <ul>
-              <li>2500 4th Ave, Seattle</li>
-              <li>(204)125-2354</li>
-              <li>brianlilyburger@gmail.com</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <div>B &amp; L burger</div>
-            <div>
-              <a href="#">
-                <i class="fa fa-facebook-official" aria-hidden="true"></i>
-              </a>
-              <a href="#">
-                <i class="fa fa-snapchat-square" aria-hidden="true"></i>
-              </a>
-              <a href="#">
-                <i class="fa fa-twitter-square" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
+  <% include templates/footer.ejs %>
+  <% include templates/scripts.ejs %>
 </body>
-
 </html>

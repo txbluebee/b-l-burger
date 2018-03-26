@@ -27,6 +27,7 @@ h2 {
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 2rem;
+  font-size: 1.5rem;
 }
 
 
@@ -70,6 +71,90 @@ header .caption {
 .caption span i{
   font-size: 1rem;
 }
+
+/* FEATURES */
+
+.section-features {
+  background-color: #eee8e6c9;
+}
+
+.section-features h2 {
+  position: relative;
+  font-size: 1.2rem;
+  line-height: 150%;
+}
+
+.section-features h2:before {
+  position: absolute;
+  content: '';
+  width: 70px;
+  height: 2px;
+  background-color: #3D1101;
+  left: 24%;
+  top: 50%;
+}
+
+.section-features h2:after {
+  position: absolute;
+  content: '';
+  width: 70px;
+  height: 2px;
+  background-color: #3D1101;
+  right: 24%;
+  top: 50%;
+}
+
+.feature {
+  text-align: center;
+  padding: 0 5px;
+}
+
+.feature img {
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.feature .feature-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+  text-transform: capitalize;
+}
+
+.feature p {
+  text-align: left;
+}
+
+/* Chef */
+
+.section-chef {
+  background-color: #3D1101;
+  color: #fff;
+  padding: 0;
+}
+
+.chef-img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-image: url('/images/main_chef_brown@2x.png');
+}
+
+.chef-block {
+  padding: 4rem 0.5rem;
+  line-height: 150%;
+  letter-spacing: 1px;
+}
+
+.chef-block .h6 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.chef-block p{
+  margin-bottom: 0;
+}
+
 
 /* Reservation */
 

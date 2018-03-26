@@ -31,18 +31,23 @@ h2 {
 }
 
 
+/* Navbar */
+
+nav {
+  position: absolute;
+  background-color: rgba(27, 26, 26, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
 /* HEADER */
 
 header {
   background-image: url('/images/bg-burger.jpg');
   height: 70vh;
   position: relative;
-}
-
-header nav {
-  background-color: rgba(27, 26, 26, 0.8);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-top: -56px;
 }
 
 header .caption {
@@ -240,4 +245,32 @@ header .caption {
 footer {
   padding: 1.5rem 0;
   background-color: #eee8e6c9;
+}
+
+.brand-text {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+footer .social-icons {
+  margin-top: 0.5rem;
+}
+
+footer .social-icons a{
+  margin-left: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+footer .social-icons a:first-child{
+  color: #3b5998;
+}
+
+footer .social-icons a:nth-child(2){
+  color: #dd4b39;
+}
+
+footer .social-icons a:last-child{
+  color: #1da1f2;
 }

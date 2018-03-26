@@ -21,6 +21,14 @@ router.get('/', csrfProtection, function (req, res, next) {
   res.render('index', { csrfToken: req.csrfToken() });
 });
 
+// GET register page
+
+router.get('/register', (req,res)=>{
+  res.render('register');
+})
+
+
+// send mail when submit reservation form 
 router.post('/sendEmail', csrfProtection , (req, res) => {
   const { name, email, phone, guest_number, diet } = req.body;
 

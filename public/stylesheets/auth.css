@@ -1,0 +1,53 @@
+.section-register {
+  background-color: #eee8e6c9;
+}
+
+.section-register .title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.section-register .title .h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.section-register .title span {
+  display: block;
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.register-block {
+  background-color: #eee8e6c9;
+  width: 75%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-top: 4px solid #F56C23;
+  box-shadow: 2px 2px 5px rgb(90, 86, 86);
+}
+
+.register-block .h5 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.register-block label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.input-group-text {
+  background-color: #f9ad84;
+}
+
+
+.btn-orange {
+  background-color: #F56C23;
+  color: #fff;
+  
+}

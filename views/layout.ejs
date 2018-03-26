@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <% include templates/head.ejs %>
+  <% include partials/head.ejs %>
 <body>
-  <% include templates/header.ejs %>
-
+  <% include partials/navbar.ejs %>
+  <% include partials/header.ejs %>
   <%- body %>
-  <% include templates/footer.ejs %>
-  <% include templates/scripts.ejs %>
+  <% include partials/footer.ejs %>
+  <% include partials/scripts.ejs %>
 </body>
 </html>

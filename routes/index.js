@@ -4,17 +4,8 @@ var nodemailer = require('nodemailer');
 var csrf = require('csurf')
 // setup route middlewares
 var csrfProtection = csrf({ cookie: true })
-var admin = require("firebase-admin");
-var serviceAccount = require("./../my-projects-d97f2-firebase-adminsdk-4ne37-0c4df79890.json");
-//firebase config
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://my-projects-d97f2.firebaseio.com"
-});
+var firebaseAdminDB = require('./../services/firebase_admin');
 
-var fireData = admin.database();
-
-require('dotenv').config()
 
 /* GET home page. */
 router.get('/', csrfProtection, function (req, res, next) {
@@ -39,8 +30,8 @@ router.post('/sendEmail', csrfProtection , (req, res) => {
   let transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: process.env.gmailUser,
-      pass: process.env.gmailPass
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASSWORD
     }
   })
 
@@ -58,9 +49,9 @@ router.post('/sendEmail', csrfProtection , (req, res) => {
     res.send('on no');
   })
   // add reservation data to firebase
-  const reserveRef = fireData.ref('reservations').push();
+  const reserveRef = firebaseAdminDB.ref('reservations').push();
   reserveRef.set({ name, email, phone, guest_number, diet }).then(()=>{
-    fireData.ref('reservations').once('value', (snapshot)=>{
+    firebaseAdminDB.ref('reservations').once('value', (snapshot)=>{
       res.send({
         "success": true,
         "firebase-data": snapshot.val(), 

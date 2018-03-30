@@ -1,0 +1,105 @@
+.menu-items {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+
+.menu-items li {
+  border-bottom: 1px solid #3D1101;
+}
+
+.menu-items li a{
+  display: block;
+  padding: 0.4rem 0;
+  padding-left: 0.5rem;
+  width: 100%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s background-color 0.2s;
+}
+
+.menu-items li a:link, 
+.menu-items li a:visited{
+  color: inherit;
+}
+
+.menu-items li a:hover, 
+.menu-items li a:active{
+  color: #eee;
+  background-color: #3D1101;
+}
+
+.search-icon {
+  background-color: #3D1101;
+  cursor: pointer;
+}
+.search-icon i {
+  color: white;
+  font-size: 1rem;
+}
+
+
+.search-bar input,
+.search-icon{
+  border: 1px solid #3D1101;
+}
+
+.checkout-text {
+  text-transform: uppercase;
+}
+
+
+.checkout-text a{
+  display: inline-block;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+/* Menu Items */
+.section-menu .card {
+  box-shadow: 1px 1px 2px rgb(145, 111, 99);
+  background-color: #f8f9fa;
+  overflow: hidden;
+  margin-top: 1.2rem;
+}
+
+.section-menu .card-img-top {
+  transition: transform 0.5s;
+}
+
+.section-menu .card-img-top:hover {
+  transform: scale(1.1);
+}
+
+.section-menu .card-title {
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.section-menu .card-title:after{
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #3D1101;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+}
+
+.add-to-cart-btn {
+  color: #FF5E45 !important;
+  border: 1px solid #FF5E45;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin-top: 0.8rem;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #FF5E45;
+  color: #fff !important;
+}

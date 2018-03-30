@@ -10,7 +10,10 @@
       </div>
       <div class="login-block">
         <div class="h5">login</div>
-        <form>
+        <form
+          action="/auth/signin"
+          method="POST"
+        >
           <label for="">Email:</label>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -18,7 +21,7 @@
                 <i class="fa fa-envelope-o fa-fw"></i>
               </span>
             </div>
-            <input type="email" class="form-control">
+            <input type="email" name="email" class="form-control" placeholder="email" required>
           </div>
           <label for="">Password: </label>
           <div class="input-group mb-4">
@@ -27,11 +30,12 @@
                 <i class="fa fa-key fa-fw"></i>
               </span>
             </div>
-            <input type="password" class="form-control">
+            <input type="password" name="password" class="form-control" placeholder="password" required>
           </div>
+          <small class="form-text"><%= errorMessage %></small>
           <div class="d-flex justify-content-around mt-5">
-            <a href="/register" class="btn btn-secondary">Register</a>
-            <button type="submit" class="btn btn-orange mt-0">Sing Up</button>
+            <a href="/auth/signup" class="btn btn-secondary">Register</a>
+            <button type="submit" class="btn btn-orange mt-0">sign in</button>
           </div>
         </form>
       </div>

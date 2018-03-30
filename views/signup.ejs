@@ -17,7 +17,10 @@
               possimus corporis.</p>
           </div>
           <div class="col-md-6">
-            <form>
+            <form 
+              action="/auth/signup"
+              method="POST"
+            >
               <label for="">Email:</label>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -25,7 +28,7 @@
                     <i class="fa fa-envelope-o fa-fw"></i>
                   </span>
                 </div>
-                <input type="email" class="form-control">
+                <input type="email" name="email" class="form-control" placeholder="your email" required>
               </div>
               <label for="">Password: </label>
               <div class="input-group mb-2">
@@ -34,7 +37,7 @@
                     <i class="fa fa-key fa-fw"></i>
                   </span>
                 </div>
-                <input type="password" class="form-control">
+                <input type="password" name="password" class="form-control" placeholder="your password" required>
               </div>
               <div class="input-group mb-4">
                 <div class="input-group-prepend">
@@ -42,12 +45,13 @@
                     <i class="fa fa-key fa-fw"></i>
                   </span>
                 </div>
-                <input type="password" class="form-control">
+                <input type="password" name="confirm_password" class="form-control" placeholder="comfirm your password" required>
               </div>
               <div class="text-right">
                 <button type="submit" class="btn btn-orange">Sing Up</button>
               </div>
             </form>
+            <small class="form-text"><%= errorMessage %></small>
           </div>
         </div>
       </div>

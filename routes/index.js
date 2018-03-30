@@ -12,15 +12,15 @@ router.get('/', csrfProtection, function (req, res, next) {
   res.render('index', { csrfToken: req.csrfToken() });
 });
 
-// GET register page
-router.get('/register', (req,res)=>{
-  res.render('register');
-})
+// GET menu page
 
-
-// GET login page
-router.get('/login', (req,res)=>{
-  res.render('login');
+router.get('/menu', (req, res)=>{
+  firebaseAdminDB.ref('menuItems').once('value').then(snapshot=>{
+    const menuItems = snapshot.val();
+    res.render('menu', {
+      menuItems
+    });
+  })
 })
 
 // send mail when submit reservation form 

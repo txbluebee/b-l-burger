@@ -1,0 +1,66 @@
+<% layout('layout') %>
+
+  <section class="section-menu bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>
+            <i class="icon ion-leaf mr-2"></i>MEMU
+          </h5>
+          <ul class="menu-items">
+            <li>
+              <a href="#">All Items(50)</a>
+            </li>
+            <li>
+              <a href="#">Breakfast(30)</a>
+            </li>
+            <li>
+              <a href="#">Burgers(15)</a>
+            </li>
+            <li>
+              <a href="#">Drinks(5)</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="input-group search-bar mb-3">
+                <input type="text" class="form-control bg-light" placeholder="Search Food Item">
+                <div class="input-group-append">
+                  <a class="input-group-text search-icon">
+                    <i class="icon ion-search"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex justify-content-end align-items-center checkout-text">
+                <div class="pr-3">checkout</div>
+                |
+                <a>
+                  <i class="icon ion-android-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <% for (let prop in menuItems){ %>
+            <div class="col-md-4">
+              <div class="card">
+                <img class="card-img-top" src="<%= menuItems[prop].imgUrl %>" alt="<%= menuItems[prop].name %>">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><%= menuItems[prop].name %></h5>
+                  <span>&#36;<%= menuItems[prop].price %>.00</span>
+                  <a class="d-block add-to-cart-btn">
+                    <i class="icon ion-android-cart mr-2"></i>add to cart
+                  </a>
+                </div>
+              </div>
+            </div>
+            <% }%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

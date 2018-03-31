@@ -1,0 +1,59 @@
+<% layout('../layouts/dashboard-layout') %>
+
+<div class="row justify-content-center">
+
+  <div class="col-md-6">
+    <h2 class="mb-3">Categories</h2>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Path</th>
+          <th width="30"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let prop in categories) {%>
+          <tr>
+            <td class="align-middle"><%= categories[prop].name %></td>
+            <td><input type="text" class="form-control form-control-sm" value="<%= categories[prop].path%>"></td>
+            <td class="align-middle">
+              <form 
+                action="/dashboard/categories/delete/<%= prop %>"
+                method="POST">
+                <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <form
+      action="/dashboard/categories/create" 
+      method="POST">
+      <table class="table">
+        <tr>
+          <td class="align-middle">Add</td>
+          <td>
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter category name">
+          </td>
+          <td colspan="2">
+            <label for="path">Path</label>
+            <input type="text" class="form-control" id="path" name="path" placeholder="Enter category path">
+          </td>
+        </tr>
+      </table>
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary">Add Category</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<script src="/javascripts/js-dashboard.js"></script>
+
+

@@ -8,7 +8,7 @@ var logger = require('morgan');
 var engine = require('ejs-locals');
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
-
+var dashboardRouter = require('./routes/dashboard');
 
 var app = express();
 require('dotenv').config;
@@ -26,13 +26,20 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: 100*1000 }
+  cookie: { secure: false }
 }))
 app.use(flash());
 
+const adminCheck = (req, res, next)=>{
+  if (req.session.uid === process.env.ADMIN_UID){
+    return next();
+  }
+  res.redirect('/menu');
+}
+
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-
+app.use('/dashboard', dashboardRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

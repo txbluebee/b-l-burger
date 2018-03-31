@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const firebaseClient = require('./../services/firebase_client');
-
+require('dotenv').config;
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
 //   res.send('respond with a resource');
@@ -26,8 +26,7 @@ router.post('/signup', (req,res)=>{
   const { email, password } = req.body;
   firebaseClient.auth().createUserWithEmailAndPassword(email, password)
   .then(user=>{
-    req.session.uid = user.uid;
-    res.redirect('/');
+    res.redirect('/auth/signin');
   })
   .catch(error=>{
     let errorMessage = error.message;
@@ -43,7 +42,11 @@ router.post('/signin',(req,res)=>{
   firebaseClient.auth().signInWithEmailAndPassword(email, password)
   .then(user=>{
     req.session.uid = user.uid;
-    res.redirect('/');
+    if (req.session.uid === process.env.ADMIN_UID){
+      res.redirect('/dashboard')
+    } else {
+      res.redirect('/menu');
+    }
   })
   .catch(error=>{
     let errorMessage = error.message;

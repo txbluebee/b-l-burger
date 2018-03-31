@@ -2,6 +2,10 @@
   "favorites.resources": [
     "public\\stylesheets\\main.css",
     "app.js",
-    "routes\\index.js"
-  ]
+    "routes\\index.js",
+    "routes\\dashboard.js",
+    "routes\\auth.js",
+    "views\\dashboard\\categories.ejs"
+  ],
+  "favorites.sortOrder": "ASC"
 }

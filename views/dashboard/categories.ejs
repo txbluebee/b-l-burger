@@ -1,8 +1,16 @@
 <% layout('../layouts/dashboard-layout') %>
 
 <div class="row justify-content-center">
+  <div class="col-md-6"> 
+      <% if (hasInfo){ %>
+        <% for (let message of messages) {%>
+          <div class="alert alert-warning">
+            <%= message %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          </div>
 
-  <div class="col-md-6">
+        <% } %>  
+      <% } %> 
     <h2 class="mb-3">Categories</h2>
     
     <table class="table">

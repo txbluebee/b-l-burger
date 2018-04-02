@@ -60,17 +60,32 @@ router.post('/categories/delete/:id', (req, res)=>{
 // GET TO NEW MENU ITEM FORM
 
 router.get('/menu_items/new', (req, res)=>{
+  let categoryQuery = req.query.category || 'all';
+  let categories = {};
   categoriesRef.once('value').then((snapshot)=>{
-    const categories = snapshot.val();
-    res.render('dashboard/menu', {
-      categories
+    categories = snapshot.val();
+    return menuItemsRef.once('value');
+  }).then((snapshot)=>{
+    const menu_items = [];
+    snapshot.forEach((snapshotChild)=>{
+      if (categoryQuery === 'all'){
+        menu_items.push(snapshotChild.val());
+      } else if (categoryQuery === categories[snapshotChild.val().category].name){
+        menu_items.push(snapshotChild.val());
+      }
+    })
+    menu_items.reverse();
+    res.render('dashboard/menu_items', {
+      categories,
+      menu_items,
+      categoryQuery
     });
   })
 })
 
 // POST CREATE NEW MENU ITEM
 
-router.post('/menu/create', (req, res)=>{
+router.post('/menu_items/new', (req, res)=>{
   const data = req.body;
   const menuItemRef = menuItemsRef.push();
   data.id = menuItemRef.key;

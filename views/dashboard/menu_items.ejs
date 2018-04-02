@@ -1,0 +1,74 @@
+<% layout('../layouts/dashboard-layout') %>
+
+  <div class="row justify-content-center">
+    <div class="col-md-2">
+      <div class="list-group">
+        <a href="/dashboard/menu_items/new?category=all" 
+          class="list-group-item list-group-item-action text-uppercase <% if (categoryQuery == 'all'){ %>active<% } %>" 
+          >
+          All
+        </a>
+        <% for (let prop in categories){ %>
+        <a href="/dashboard/menu_items/new?category=<%= categories[prop].name %>"
+          class="list-group-item list-group-item-action text-uppercase <% if (categoryQuery == categories[prop].name){ %>active<% }%>" 
+          >
+          <%= categories[prop].name %>
+        </a>
+        <% } %>
+      </div>
+      </div>
+      <div class="col-md-6">
+
+        <h2 class="mb-3">Menu Items</h2>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th width="200px">Image</th>
+              <th>Name</th>
+              <th>Path</th>
+              <th width="30"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% menu_items.map(({name, price, imgUrl, id})=>{ %>
+              <tr>
+                <td class="align-middle">
+                  <img class="img-fluid" src="<%= imgUrl %>" alt="<%= name %>">
+                </td>
+                <td class="align-middle">
+                  <%= name %>
+                </td>
+                <td class="align-middle">$
+                  <%= price %>.00</td>
+                <td class="align-middle">
+                  <form action="/dashboard/menuItems/delete/<%= id %>" method="POST">
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                  </form>
+                </td>
+              </tr>
+              <% }) %>
+          </tbody>
+        </table>
+
+        <form action="/dashboard/categories/create" method="POST">
+          <table class="table">
+            <tr>
+              <td class="align-middle">Add</td>
+              <td>
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter category name">
+              </td>
+              <td colspan="2">
+                <label for="path">Path</label>
+                <input type="text" class="form-control" id="path" name="path" placeholder="Enter category path">
+              </td>
+            </tr>
+          </table>
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary">Add Category</button>
+          </div>
+        </form>
+
+      </div>
+    </div>

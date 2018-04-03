@@ -10,6 +10,11 @@
           <a class="nav-item nav-link" href="/menu">Menu</a>
           <a class="nav-item nav-link" href="#chef">Chef</a>
           <a class="nav-item nav-link" href="#reservation">Reserve</a>
+          <% if (UserSignIn){ %>
+            <a class="nav-item nav-link" href="/auth/signout">Sign Out </a>
+          <% } else { %>
+            <a class="nav-item nav-link" href="/auth/signin">Sign In</a>
+          <% }%>   
         </div>
       </div>
     </div>

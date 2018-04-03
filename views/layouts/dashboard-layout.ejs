@@ -36,22 +36,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/dashboard/menu_items/new">Add Menu Item</a>
-        <a class="nav-item nav-link" href="/dashboard/archives">Edit Menu Item</a>
+        <a class="nav-item nav-link" href="/dashboard/menu_items/new">Edit Menu Item</a>
         <a class="nav-item nav-link" href="/dashboard/categories">Edit Category </a>
-
+        <% if (UserSignIn){ %>
+          <a class="nav-item nav-link" href="/auth/signout">Sign Out </a>
+        <% } else { %>
+          <a class="nav-item nav-link" href="/auth/signin">Sign In</a>
+        <% }%>    
       </div>
     </div>
   </nav>
   <div class="main container-fluid my-4">
-
-
   <%- body %>
   </div>
 
   <footer class="mt-5 py-3 bg-light text-secondary text-center">
-    B  L Dashboard
+    B &amp; L Dashboard
   </footer>
 </body>
 
-</html>&amp;
+</html>

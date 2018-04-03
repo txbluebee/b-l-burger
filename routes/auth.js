@@ -21,6 +21,13 @@ router.get('/signin', (req,res)=>{
   });
 })
 
+// GET sign out page
+
+router.get('/signout', (req,res)=>{
+  req.session.uid = "";
+  res.redirect('/auth/signin');
+})
+
 // user sign up
 router.post('/signup', (req,res)=>{
   const { email, password } = req.body;

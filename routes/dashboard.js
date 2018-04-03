@@ -90,7 +90,7 @@ router.post('/menu_items/new', (req, res)=>{
   const menuItemRef = menuItemsRef.push();
   data.id = menuItemRef.key;
   menuItemRef.set(data).then(()=>{
-    res.redirect('/menu');
+    res.redirect('/dashboard/menu_items/new');
   })
 })
 

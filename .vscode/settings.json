@@ -6,7 +6,8 @@
     "routes\\dashboard.js",
     "routes\\auth.js",
     "views\\dashboard\\categories.ejs",
-    "views\\layouts\\dashboard-layout.ejs"
+    "views\\layouts\\dashboard-layout.ejs",
+    "public\\stylesheets\\queries.css"
   ],
   "favorites.sortOrder": "ASC"
 }

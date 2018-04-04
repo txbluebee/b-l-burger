@@ -49,6 +49,10 @@ nav {
   letter-spacing: 1px;
 }
 
+.signout-btn {
+  color: rgb(228, 216, 58) !important;
+}
+
 
 /* HEADER */
 
@@ -84,6 +88,10 @@ header .caption {
 
 .caption span i{
   font-size: 1rem;
+}
+
+.caption a{
+  letter-spacing: 1px;
 }
 
 /* FEATURES */

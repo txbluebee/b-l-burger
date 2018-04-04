@@ -49,6 +49,7 @@ router.post('/signin',(req,res)=>{
   firebaseClient.auth().signInWithEmailAndPassword(email, password)
   .then(user=>{
     req.session.uid = user.uid;
+    req.session.email = user.email;
     if (req.session.uid === process.env.ADMIN_UID){
       res.redirect('/dashboard')
     } else {

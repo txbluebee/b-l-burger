@@ -4,7 +4,7 @@ brown color: #3D1101
 
 html, body {
   font-family: 'Lato', sans-serif;
-  color: #3D1101;
+  color: rgb(61, 17, 1);
 }
 
 *:focus {
@@ -133,6 +133,7 @@ header .caption {
 
 .feature img {
   border-radius: 50%;
+  width: 60%;
   margin-bottom: 1rem;
 }
 
@@ -185,6 +186,7 @@ header .caption {
 
 .media img {
   border-radius: 50%;
+  width: 30%;
 }
 
 .media-body h5 {

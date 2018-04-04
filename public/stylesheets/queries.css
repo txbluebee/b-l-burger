@@ -1,14 +1,12 @@
 /* // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) { ... }
 
-// Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) { ... } */
 
 /* // Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) { 
   /* HEADER */
   header {
-    height: 50vh;
+    height: 60vh;
     margin-top: -56px;
   }
   header .caption {
@@ -38,6 +36,7 @@
 
   .media img {
     border-radius: 50%;
+    width: 50%;
   }
 
   .media-body h5 {
@@ -50,4 +49,179 @@
   }
 
 }
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) { 
+/* Resue */
 
+
+section {
+  padding: 2rem 0;
+}
+
+
+  /* HEADER */
+  header {
+    height: 80vh;
+    margin-top: 0px;
+  }
+  header .caption {
+    width: 60%;
+  }
+
+  .caption h1 {
+    font-weight: 300;
+    font-size: 2rem;
+    word-spacing: 0.3rem;
+  }
+
+  .caption span {
+    display: none;
+  }
+
+  /* FEATURES */
+  .section-features h2:before {
+    left: 19%;
+  }
+  .section-features h2:after {
+    right: 19%;
+  }
+
+  .feature {
+    margin-bottom: 2rem;
+  }
+
+  .feature .feature-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    text-transform: capitalize;
+  }
+  
+  .feature p {
+    padding: 0 3rem;
+    text-align: left;
+  }
+  .section-chef {
+    background-color: #3D1101;
+    color: #fff;
+    padding: 0;
+  }
+   /* Chef */
+  .chef-img {
+    background-image: linear-gradient(rgba(61, 17, 1,0.7),rgba(61, 17, 1,0.7)), url('/images/main_chef_brown@2x.png');
+  }
+  
+  .chef-block {
+    padding: 4rem 0.5rem;
+    line-height: 150%;
+    letter-spacing: 1px;
+  }
+  
+  .chef-block .h6 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .chef-block p{
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+  /* Testimonial */
+  .media {
+    margin-bottom: 2rem;
+  }
+
+  .media-body h5 {
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 1rem !important;
+
+  }
+
+  .media-body {
+    line-height: 145%;
+    padding: 0 3rem;
+  }
+
+  .media-body span {
+    display: block;
+    text-align: right;
+    font-style: italic;
+  }
+
+ /* Reservation */
+  .reservation-section .map {
+    height: 300px;
+  }
+
+  .reserve-form {
+    margin-top: 2rem;
+  }
+
+} 
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+  header {
+    background-image: url('/images/bg-burger.jpg');
+    height: 50vh;
+    position: relative;
+    margin-top: 0;
+  }
+  
+  header .caption {
+    width: 80%;
+  }
+  
+  .caption h1 {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  
+
+  .caption a{
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+  }
+
+  /* FEATURES */
+
+  .section-features h2 {
+    font-size: 1rem;
+  }
+
+  .section-features h2:before {
+    left: 8%;
+  }
+  .section-features h2:after {
+    right: 8%;
+  }
+
+  .feature {
+    margin-bottom: 2.2rem;
+  }
+
+  .feature .feature-title {
+    font-size: 1.1rem;
+  }
+  
+
+ /* Chef */
+.chef-block {
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+  }
+  
+  .chef-block .h6 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .chef-block p{
+    margin-bottom: 0;
+    line-height: 1.5;
+  }  
+
+
+
+}

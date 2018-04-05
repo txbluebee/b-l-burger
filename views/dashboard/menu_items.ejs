@@ -36,11 +36,11 @@
   <div class="row justify-content-center">
     <div class="col-md-3">
       <div class="list-group">
-        <a href="/dashboard/menu_items/new?category=all" class="list-group-item list-group-item-action text-uppercase <% if (categoryQuery == 'all'){ %>active<% } %>">
+        <a href="/dashboard/menu_items?category=all" class="list-group-item list-group-item-action text-uppercase <% if (categoryQuery == 'all'){ %>active<% } %>">
           All
         </a>
         <% for (let prop in categories){ %>
-          <a href="/dashboard/menu_items/new?category=<%= categories[prop].name %>" class="list-group-item list-group-item-action text-uppercase <% if (categoryQuery == categories[prop].name){ %>active<% }%>">
+          <a href="/dashboard/menu_items?category=<%= categories[prop].name %>" class="list-group-item list-group-item-action text-uppercase <% if (categoryQuery == categories[prop].name){ %>active<% }%>">
             <%= categories[prop].name %>
           </a>
           <% } %>
@@ -84,5 +84,22 @@
             <% }) %>
         </tbody>
       </table>
+      <nav class="my-5" aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item <% if (!page.hasPre){ %>disabled<% } %>">
+            <a class="page-link" href="/dashboard/menu_items/?page=<%= page.currentPage-1 %>" tabindex="-1">Previous</a>
+          </li>
+          <% for (let i=1; i<= page.pageTotal; i++){ %>
+            <li class="page-item <% if (i == page.currentPage){ %>active<% } %>">
+              <a class="page-link" href="/dashboard/menu_items/?page=<%= i %>">
+                <%= i %>
+              </a>
+            </li>
+            <% } %>
+          <li class="page-item <% if (!page.hasNext){ %>disabled<% } %>">
+            <a class="page-link" href="/dashboard/menu_items/?page=<%= page.currentPage+1 %>">Next</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const firebaseAdminDB = require('./../services/firebase_admin');
 const categoriesRef = firebaseAdminDB.ref('food-categories');
+const convertPagination = require('./../modules/convertPagination');
 
 const menuItemsRef = firebaseAdminDB.ref('menuItems')
 
@@ -79,33 +80,13 @@ router.get('/menu_items', (req, res)=>{
     })
     menu_items.reverse();
     // PAGINATION
+    const paginationData = convertPagination(menu_items, currentPage)
 
-    const totalItems = menu_items.length;
-    const perpage = 6;
-    const pageTotal = Math.ceil(totalItems/perpage);
-    if (currentPage > pageTotal) currentPage = pageTotal;
-    
-    const minIndex = (currentPage*perpage)-perpage + 1;
-    const maxIndex = currentPage*perpage;
-    const data = [];
-    menu_items.forEach((menu_item, index)=>{
-      index++;
-      if (minIndex <= index && index <= maxIndex){
-        data.push(menu_item);
-      }
-    })
-    const page = {
-      pageTotal,
-      currentPage,
-      hasPre: currentPage > 1,
-      hasNext: currentPage < pageTotal
-    }
-    // PAGINATION END
     res.render('dashboard/menu_items', {
       categories,
-      menu_items: data,
+      menu_items: paginationData.data,
       categoryQuery,
-      page
+      page:paginationData.page
     });
   })
 })

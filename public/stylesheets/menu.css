@@ -28,7 +28,7 @@
 .menu-items li a:hover, 
 .menu-items li a:active{
   color: #eee;
-  background-color: #3D1101;
+  background-color: rgb(112, 34, 6);
 }
 
 .menu-items li .menu-active {

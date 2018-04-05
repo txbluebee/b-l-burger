@@ -6,7 +6,7 @@
 @media (max-width: 991.98px) { 
   /* HEADER */
   header {
-    height: 60vh;
+    height: 40vh;
     margin-top: -56px;
   }
   header .caption {
@@ -88,6 +88,8 @@ section {
 
   .feature {
     margin-bottom: 2rem;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .feature .feature-title {
@@ -97,7 +99,6 @@ section {
   }
   
   .feature p {
-    padding: 0 3rem;
     text-align: left;
   }
   .section-chef {

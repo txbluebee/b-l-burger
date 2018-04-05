@@ -44,7 +44,7 @@ const globalLocals = (req, res, next) => {
 
 app.use('/', globalLocals, indexRouter);
 app.use('/auth', authRouter);
-app.use('/dashboard', adminCheck, dashboardRouter);
+app.use('/dashboard', dashboardRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

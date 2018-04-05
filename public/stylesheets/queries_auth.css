@@ -1,0 +1,43 @@
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) { 
+  /* SIGN UP */
+  .register-block {
+    width: 80%;
+  }
+
+  .section-form {
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #afb0b4;
+  }
+
+  .section-form .title .h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-form .title span {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  /* SIGN IN */
+  .login-block {
+    width: 75%;
+  }
+}
+
+
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+  .register-block {
+    width: 90%;
+  }
+
+  .login-block {
+    width: 90%;
+  }
+
+  .login-block form {
+    width: 100%;
+  }
+}  

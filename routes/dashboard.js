@@ -94,8 +94,14 @@ router.post('/menu_items/new', (req, res)=>{
   })
 })
 
+// Delete Menu Item
 
-
+router.post('/menu_items/delete/:id', (req, res)=>{
+  const id = req.param('id');
+  menuItemsRef.child(id).remove();
+  req.flash('info', 'menu item deleted');
+  res.end();
+})
 
 
 module.exports = router;

@@ -1,4 +1,4 @@
-<% layout('layouts/auth-layout') %>
+<% layout('layouts/menu-layout') %>
 
   <section class="section-menu bg-light">
     <div class="container">
@@ -9,17 +9,23 @@
           </h5>
           <ul class="menu-items">
             <li>
-              <a href="#">All Items(50)</a>
+              <a href="/menu?category=all"
+                <% if (categoryQuery === 'all'){%> 
+                  class="menu-active"
+                <% }%> 
+              >All Items</a>
             </li>
-            <li>
-              <a href="#">Breakfast(30)</a>
-            </li>
-            <li>
-              <a href="#">Burgers(15)</a>
-            </li>
-            <li>
-              <a href="#">Drinks(5)</a>
-            </li>
+            <% for (let prop in categories) { %>
+              <li>
+                <a href="/menu?category=<%= categories[prop].name %>"
+                  <% if (categoryQuery === categories[prop].name){%> 
+                    class="menu-active"
+                  <% }%>
+                >
+                  <%= categories[prop].name %>
+                </a>
+              </li>
+            <% }%>    
           </ul>
         </div>
         <div class="col-md-9">
@@ -45,21 +51,40 @@
             </div>
           </div>
           <div class="row mt-3">
-            <% for (let prop in menuItems){ %>
+            <% menuItems.map(({name, imgUrl, price, id, category})=>{ %>
             <div class="col-sm-6 col-md-4">
               <div class="card">
-                <img class="card-img-top" src="<%= menuItems[prop].imgUrl %>" alt="<%= menuItems[prop].name %>">
+                <img class="card-img-top" src="<%= imgUrl %>" alt="<%= name %>">
                 <div class="card-body text-center">
-                  <h5 class="card-title"><%= menuItems[prop].name %></h5>
-                  <span>&#36;<%= menuItems[prop].price %>.00</span>
+                  <h5 class="card-title"><%= name %></h5>
+                  <span>&#36;<%= price %>.00</span>
                   <a class="d-block add-to-cart-btn">
                     <i class="icon ion-android-cart mr-2"></i>add to cart
                   </a>
                 </div>
               </div>
             </div>
-            <% }%>
+            <% }) %>
           </div>
+        
+            <nav class="my-5" aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                <li class="page-item <% if (!page.hasPre){ %>disabled<% } %>">
+                  <a class="page-link" href="/menu?page=<%= page.currentPage-1 %>" tabindex="-1">Previous</a>
+                </li>
+                <% for (let i=1; i<= page.pageTotal; i++){ %>
+                  <li class="page-item <% if (i == page.currentPage){ %>active<% } %>">
+                    <a class="page-link" href="/menu?page=<%= i %>">
+                      <%= i %>
+                    </a>
+                  </li>
+                  <% } %>
+                <li class="page-item <% if (!page.hasNext){ %>disabled<% } %>">
+                  <a class="page-link" href="/menu?page=<%= page.currentPage+1 %>">Next</a>
+                </li>
+              </ul>
+            </nav>
+         
         </div>
       </div>
     </div>

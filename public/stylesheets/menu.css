@@ -31,6 +31,11 @@
   background-color: #3D1101;
 }
 
+.menu-items li .menu-active {
+  color: #eee !important;
+  background-color: #3D1101;
+}
+
 .search-icon {
   background-color: #3D1101;
   cursor: pointer;
@@ -106,4 +111,9 @@
 .add-to-cart-btn:hover {
   background-color: #FF5E45;
   color: #fff !important;
+}
+
+.section-menu nav {
+  position: relative;
+  background-color: #f8f9fa;
 }

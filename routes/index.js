@@ -1,11 +1,15 @@
-var express = require('express');
-var router = express.Router();
-var nodemailer = require('nodemailer');
-var csrf = require('csurf')
-// setup route middlewares
-var csrfProtection = csrf({ cookie: true })
-var firebaseAdminDB = require('./../services/firebase_admin');
+const express = require('express');
+const router = express.Router();
+const nodemailer = require('nodemailer');
+const convertPagination = require('./../modules/convertPagination');
 
+const csrf = require('csurf')
+// setup route middlewares
+const csrfProtection = csrf({ cookie: true })
+const firebaseAdminDB = require('./../services/firebase_admin');
+
+const categoriesRef = firebaseAdminDB.ref('food-categories');
+const menuItemsRef = firebaseAdminDB.ref('menuItems');
 
 /* GET home page. */
 router.get('/', csrfProtection, function (req, res, next) {
@@ -15,11 +19,30 @@ router.get('/', csrfProtection, function (req, res, next) {
 // GET menu page
 
 router.get('/menu', (req, res)=>{
-  firebaseAdminDB.ref('menuItems').once('value').then(snapshot=>{
-    const menuItems = snapshot.val();
+  const currentPage = req.query.page || 1;
+  const categoryQuery = req.query.category || 'all';
+  let categories = {};
+  categoriesRef.once('value').then(snapshot=>{
+    categories = snapshot.val();
+    return menuItemsRef.once('value');
+  })
+  .then(snapshot =>{
+    const menuItems = [];
+    snapshot.forEach(snapshotChild =>{
+      if (categoryQuery === "all") {
+        menuItems.push(snapshotChild.val());
+      } else if (categoryQuery === categories[snapshotChild.val().category].name){
+        menuItems.push(snapshotChild.val());
+      }
+    })
+
+    const paginationData = convertPagination(menuItems, currentPage);
     res.render('menu', {
-      menuItems
-    });
+      menuItems: paginationData.data,
+      page: paginationData.page,
+      categories,
+      categoryQuery
+    })
   })
 })
 

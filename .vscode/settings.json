@@ -8,7 +8,8 @@
     "views\\dashboard\\categories.ejs",
     "views\\layouts\\dashboard-layout.ejs",
     "public\\stylesheets\\queries.css",
-    "views\\partials\\head.ejs"
+    "views\\partials\\head.ejs",
+    "package.json"
   ],
   "favorites.sortOrder": "ASC"
 }

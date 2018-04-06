@@ -47,8 +47,13 @@ app.use('/auth', authRouter);
 app.use('/dashboard', adminCheck, dashboardRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+  var err = new Error('Not Found');
+  err.status = 404;
+  res.render('error', {
+    title: 'The page you look for is not existed :('
+  })
 });
+
 
 // error handler
 app.use(function (err, req, res, next) {

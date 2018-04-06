@@ -1,15 +1,15 @@
-.menu-items {
+.menu-sidebar {
   padding-left: 0;
   list-style: none;
   margin-top: 1rem;
 }
 
 
-.menu-items li {
+.menu-sidebar li {
   border-bottom: 1px solid #3D1101;
 }
 
-.menu-items li a{
+.menu-sidebar li a{
   display: block;
   padding: 0.4rem 0;
   padding-left: 0.5rem;
@@ -20,18 +20,18 @@
   transition: color 0.2s background-color 0.2s;
 }
 
-.menu-items li a:link, 
-.menu-items li a:visited{
+.menu-sidebar li a:link, 
+.menu-sidebar li a:visited{
   color: inherit;
 }
 
-.menu-items li a:hover, 
-.menu-items li a:active{
+.menu-sidebar li a:hover, 
+.menu-sidebar li a:active{
   color: #eee;
   background-color: rgb(112, 34, 6);
 }
 
-.menu-items li .menu-active {
+.menu-sidebar li .menu-active {
   color: #eee !important;
   background-color: #3D1101;
 }
@@ -72,12 +72,12 @@
 }
 
 .section-menu .card-img-top {
-  transition: transform 0.5s;
+  background-color: transparent;
+  height: 90%;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.section-menu .card-img-top:hover {
-  transform: scale(1.1);
-}
 
 .section-menu .card-body {
   padding: 0.7rem 1rem;
@@ -87,6 +87,8 @@
   text-transform: capitalize;
   font-weight: 700;
   font-size: 1rem;
+  height: 47px;
+  margin-bottom: 0;
 }
 
 .section-menu .card-title:after{
@@ -104,7 +106,7 @@
   border: 1px solid #FF5E45;
   cursor: pointer;
   text-transform: capitalize;
-  margin-top: 0.8rem;
+  margin-top: 0.5rem;
   transition: color 0.2s, background-color 0.2s;
 }
 

@@ -46,6 +46,10 @@ app.use('/', globalLocals, indexRouter);
 app.use('/auth', authRouter);
 app.use('/dashboard', adminCheck, dashboardRouter);
 // catch 404 and forward to error handler
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
+
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
@@ -53,7 +57,6 @@ app.use(function (req, res, next) {
     title: 'The page you look for is not existed :('
   })
 });
-
 
 // error handler
 app.use(function (err, req, res, next) {

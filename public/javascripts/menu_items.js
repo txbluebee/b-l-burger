@@ -1,4 +1,4 @@
-// const delMenuItem = document.querySelector('.delMenuItem');
+import axios from 'axios';
 
 // delMenuItem.addEventListener('click', function(e){
 //   e.preventDefault();
